@@ -8,9 +8,8 @@ $(document).ready(function () {
     console.log('Daily Available time' + dat);
     console.log('Wake up time:' + wt);
 
-    test = "Aug 18, 2018 " + bt;
-    var countDownDate = new Date(test).getTime();
-
+    placeHolderDate = "Aug 18, 2018 " + bt;
+    var countDownDate = new Date(placeHolderDate).getTime();
 
 
     var countDownHourMin = (wt.split(":"));
@@ -30,17 +29,16 @@ $(document).ready(function () {
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Output the result in an element with id="demo"
         $("#countDown").val(hours + "h " + minutes + "m " + seconds + "s ");
 
-        // If the count down is over, write some text
+        // If the countdown is over, write some text
         if (hours === 0 && minutes === 0 && seconds === 0) {
             //clearInterval(x);
             $("#countDown").val("00:00:00");
         }
 
         if (hours < 0 || minutes < 0 || seconds < 0) {
-            //clearInterval(x);
+            clearInterval(x);
             $("#countDown").val("00:00:00");
         }
 
