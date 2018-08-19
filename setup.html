@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Monsin</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
+    <script src="setup.js"></script>
+
+</head>
+<body>
+
+	Hours<input type="number" id="sleepHours" placeholder="hours">	
+	Minutes<input type="number" id="sleepMinutes" placeholder="minutes" min=1 max=59>
+	<br>
+	Wakeup?<input type="time" id="wakeupTime">
+	<br>
+	Sleep Prep?
+	<input type="radio" name="sleepPrep" value="1">Yes
+	<input type="radio" name="sleepPrep" value="0">No
+	<br>
+	Essentials
+	<input type="number" id="essentialHours">
+	<input type="number" id="essentialMinutes">
+	<br>
+	<input type="submit" id="submitBtn" value="Submit" />
+
+
+<table style="display: none">
+
+<tr>
+	<td>
+		You will wake up by:
+	</td>
+	<td>
+		<!-- show it -->
+	</td>
+</tr>
+
+<tr>
+	<td>
+		Essential Activities:
+	</td>
+	<td>
+		<!-- show it -->
+	</td>
+</tr>
+
+<tr>
+	<td>
+		Recommended Sleep Time:
+	</td>
+	<td>
+		<!-- show it -->
+	</td>
+</tr>
+
+<tr>
+	<td>
+		Hours of Sleep Required:
+	</td>
+	<td>
+		<!-- show it -->
+	</td>
+</tr>
+
+
+
+</table>
+
+</body>
+
+
+
+
+</html>
