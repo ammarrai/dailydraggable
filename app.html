@@ -1,82 +1,83 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Daily Draggable</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-  <script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
-  <script src="countdown.js"></script>
-  
-  
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>Daily Draggable</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
+    <script src="countdown.js"></script>
 
-  
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 
 <body>
 
-  <div class="recipe">
+<div class="recipe">
     <div class="recipe__info">
 
-            <td class="recipe-table__cell">
-              DAT: <input type="text" id="countDown" class="recipe__text-field"></td>
-            <br>
-              TTT: <input type="text" id="totalTaskTime" class="recipe__text-field"></td>
+        <td class="recipe-table__cell">
+            Till Sleep: <input type="text" id="countDown" class="recipe__text-field"></td>
+        <br>
+        TTT: <input type="text" id="totalTaskTime" class="recipe__text-field"></td>
 
-<br></br>
+        <br></br>
 
     </div>
     <div class="recipe__ingredients">
-      <table cellpadding="0" cellspacing="0" border="0" class="recipe-table" id="recipeTable">
-        <tbody id="recipeTableBody">
+        <table cellpadding="0" cellspacing="0" border="0" class="recipe-table" id="recipeTable">
+            <tbody id="recipeTableBody">
 
-          <tr>
-            <td class="drag-handler"></td>
-            
-              <td class="recipe-table__cell">
-                <input type="text" class="recipe__text-field" value="" placeholder="item"></td>
-
-                <td class="recipe-table__cell">
-                  <input type="text" class="recipe__text-field" value="" placeholder="time estimate"></td>
-
-                  <td class="recipe-table__cell">
-                    <input type="text" class="recipe__text-field" value="" placeholder="due"></td>
-
-                    <td class="recipe-table__cell">
-                      <button class="recipe-table__del-row-btn">x</button></td>
-                    </tr>
-
-                  </tbody>
-                </table>
-                <div class="recipe-table__add-row">
-                  <span class="recipe-table__add-row-btn">+</span>
-                </div>
-              </div>
-            </div>
-            <script id="rowTemplate" type="text/template">
-              <tr>
+            <tr>
                 <td class="drag-handler"></td>
 
-                
-                  <td class="recipe-table__cell">
+                <td class="recipe-table__cell">
                     <input type="text" class="recipe__text-field" value="" placeholder="item"></td>
 
-                    <td class="recipe-table__cell">
-                      <input type="text" class="recipe__text-field" value="" placeholder="time estimate"></td>
+                <td class="recipe-table__cell">
+                    <input type="text" class="recipe__text-field taskTimeEstimate" value="" placeholder="time estimate"></td>
 
-                        <td class="recipe-table__cell">
-                          <input type="text" class="recipe__text-field" value="" placeholder="due"></td>
+                <td class="recipe-table__cell">
+                    <input type="text" class="recipe__text-field" value="" placeholder="due"></td>
 
-                          <td class="recipe-table__cell">
-                            <button class="recipe-table__del-row-btn">x</button></td>
-                          </tr>
+                <td class="recipe-table__cell">
+                    <button class="recipe-table__del-row-btn">x</button>
+                </td>
+            </tr>
 
-                        </script>
-                        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
-                        <script src='https://rubaxa.github.io/Sortable/Sortable.js'></script>
-                        <script src='todolist.js'></script>
+            </tbody>
+        </table>
+        <div class="recipe-table__add-row">
+            <span class="recipe-table__add-row-btn">+</span>
+        </div>
+    </div>
+</div>
+<script id="rowTemplate" type="text/template">
+    <tr>
+        <td class="drag-handler"></td>
 
-                      </body>
-                      </html>
+
+        <td class="recipe-table__cell">
+            <input type="text" class="recipe__text-field " value="" placeholder="item"></td>
+
+        <td class="recipe-table__cell">
+            <input type="text" class="recipe__text-field  taskTimeEstimate" value="" placeholder="time estimate"></td>
+
+        <td class="recipe-table__cell">
+            <input type="text" class="recipe__text-field" value="" placeholder="due"></td>
+
+        <td class="recipe-table__cell">
+            <button class="recipe-table__del-row-btn">x</button>
+        </td>
+    </tr>
+
+</script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+<script src='https://rubaxa.github.io/Sortable/Sortable.js'></script>
+<script src='todolist.js'></script>
+
+</body>
+</html>
