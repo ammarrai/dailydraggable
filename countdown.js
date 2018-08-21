@@ -1,9 +1,9 @@
 $(document).ready(function () {
 
+
     function countdown() {
         var bt = localStorage.getItem('bedTime');
         var wt = localStorage.getItem('wakeTime');
-
 
         var today = new Date(),
             dd = today.getDate(),
@@ -30,6 +30,15 @@ $(document).ready(function () {
                 var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
                     minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
                     seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                if (minutes.toString().length == 1) {
+                    minutes = "0" + minutes;
+                }
+
+                if (seconds.toString().length == 1) {
+                    seconds = "0" + seconds;
+                }
+
                 $("#countDown").val(hours + ":" + minutes + ":" + seconds);
             } else {
                 $("#countDown").val("00:00:00");
