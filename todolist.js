@@ -14,7 +14,6 @@ $(document).ready(function () {
         });
     }
 
-
     $(document).on('click', '.recipe-table__add-row-btn', function (e) {
         var $el = $(e.currentTarget);
         var $tableBody = $('#recipeTableBody');
@@ -27,6 +26,9 @@ $(document).ready(function () {
     $(document).on('click', '.recipe-table__del-row-btn', function (e) {
         var $el = $(e.currentTarget);
         var $row = $el.closest('tr');
+        var par =  $el.closest('td').find("input").val();
+        var total = $("#totalTaskTime").val();
+        $("#totalTaskTime").val(total-par);
         $row.remove();
         return false;
     });

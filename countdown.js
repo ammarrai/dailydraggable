@@ -1,32 +1,35 @@
 $(document).ready(function () {
 
-
     function countdown() {
-        var bt = localStorage.getItem('bedTime');
-        var wt = localStorage.getItem('wakeTime');
+        var bt = "23:00",  // 11:00 PM
+            wt = "08:00";  // 08:00 AM
+
 
         var today = new Date(),
             dd = today.getDate(),
-            mm = today.getMonth() + 1,
+            mm = today.getMonth()+1,
             yyyy = today.getFullYear();
 
         var startTime = new Date(mm + '/' + dd + '/' + yyyy + ' ' + wt),
             endTime = new Date(mm + '/' + dd + '/' + yyyy + ' ' + bt);
 
-        setInterval(function () {
+        setInterval(function() {
             var now = new Date();
             var nowdd = today.getDate();
             var nowTime = now.getTime();
-            if (dd !== nowdd) {
+            if(dd !== nowdd) {
                 dd = nowdd;
+                var nowmm = now.getMonth() + 1,
+                    nowyyyy = now.getFullYear();
                 startTime = new Date(dd + '/' + mm + '/' + yyyy + ' wt');
                 endTime = new Date(dd + '/' + mm + '/' + yyyy + ' bt');
             }
 
-            if (nowTime > startTime && nowTime < endTime) {
-
+            if(nowTime > startTime && nowTime < endTime) {
+                // Find the distance between now and the count down date
                 var distance = endTime - nowTime;
 
+                // Time calculations for days, hours, minutes and seconds
                 var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
                     minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
                     seconds = Math.floor((distance % (1000 * 60)) / 1000);
@@ -43,17 +46,7 @@ $(document).ready(function () {
             } else {
                 $("#countDown").val("00:00:00");
             }
-
-            if (hours === 2) {
-                document.getElementById('countDown').style.color = '#f47742';
-            }
-
-            if (hours === 1 || hours === 0) {
-                document.getElementById('countDown').style.color = '#db0808';
-            }
-
         }, 1000);
     }
-
     countdown();
 });
