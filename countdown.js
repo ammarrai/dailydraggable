@@ -43,6 +43,15 @@ $(document).ready(function () {
             } else {
                 $("#countDown").val("00:00:00");
             }
+
+            if (hours === 2) {
+                document.getElementById('countDown').style.color = '#f47742';
+            }
+
+            if (hours === 1 || hours === 0) {
+                document.getElementById('countDown').style.color = '#db0808';
+            }
+
         }, 1000);
     }
 

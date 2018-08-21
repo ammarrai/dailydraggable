@@ -10,8 +10,10 @@ body {
 }
 
 .totalTaskTime{
-
-
+  background-color: black;
+  color: white;
+  font-size: 30px;
+  font-family: Dubai;
 }
 .recipe {
   padding: 1em;

@@ -53,6 +53,8 @@ $("#submitBtn").click(function(){
     localStorage.setItem('dailyAvailableTime', dat);
     localStorage.setItem('bedTime', bedTime);
     localStorage.setItem('wakeTime', wakeupTimeString);
+    localStorage.setItem('essentialHours', essentialHours);
+    localStorage.setItem('essentialMinutes', essentialMinutes);
 	});
 
 });
