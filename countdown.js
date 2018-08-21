@@ -1,27 +1,18 @@
 $(document).ready(function () {
 
     var bt = localStorage.getItem('bedTime');
-    var dat = localStorage.getItem('dailyAvailableTime');
     var wt = localStorage.getItem('wakeTime');
 
-
-//    console.log('Bed Time:' + bt);
-    //   console.log('Daily Available time' + dat);
+    //  console.log('Bed Time:' + bt);
+    //  console.log('Daily Available time' + dat);
     //  console.log('Wake up time:' + wt);
 
     var dateNow = moment().format('MMM D, YYYY');
-    placeHolderDate = dateNow + " " + bt;
-
-    var timeNow = moment().format('HH:mm');
+    var placeHolderDate = dateNow + " " + bt;
 
     var countDownDate = new Date(placeHolderDate).getTime();
 
-    var countDownHourMin = (wt.split(":"));
-
-
-// Update the count down every 1 second
     var x = setInterval(function () {
-
 
         // Get todays date and time
         var now = new Date().getTime();
@@ -38,47 +29,32 @@ $(document).ready(function () {
 
         // If the countdown is over, write some text
         if (hours === 0 && minutes === 0 && seconds === 0) {
-            //clearInterval(x);
             $("#countDown").val("00:00:00");
+            document.getElementById('countDown').style.color = 'red';
         }
 
         if (hours < 0 || minutes < 0 || seconds < 0) {
-            //clearInterval(x);
             $("#countDown").val("00:00:00");
+            document.getElementById('countDown').style.color = 'red';
         }
+
         var timeNow = moment().format('HH:mm');
-        //console.log('Time Now:' + timeNow);
-        //console.log('Wake Time:' + wt);
         if (timeNow === wt) {
             clearInterval(x);
             restartCountdown();
         }
 
-
-        //console.log(hours + ":" + minutes + ":" + seconds);
-
     }, 1000);
 
 
     function restartCountdown() {
-        //console.log("restartCountdown Started!");
 
         var bt = localStorage.getItem('bedTime');
-        var dat = localStorage.getItem('dailyAvailableTime');
-        var wt = localStorage.getItem('wakeTime');
-
-        //console.log('Bed Time:' + bt);
-        //console.log('Daily Available time' + dat);
-        //console.log('Wake up time:' + wt);
 
         var dN = (moment().add(moment.duration({d: 1})).format('MMM D, YYYY'));
-        console.log('dn ' + dN);
 
         var placeHolderDate = dN + " " + bt;
         var countDownDate = new Date(placeHolderDate).getTime();
-
-        var countDownHourMin = (wt.split(":"));
-
 
         // Update the count down every 1 second
         var x = setInterval(function () {
@@ -98,18 +74,17 @@ $(document).ready(function () {
 
             // If the countdown is over, write some text
             if (hours === 0 && minutes === 0 && seconds === 0) {
-                //clearInterval(x);
                 $("#countDown").val("00:00:00");
+                document.getElementById('countDown').style.color = '#f08000';
+                alert('this');
             }
 
             if (hours < 0 || minutes < 0 || seconds < 0) {
-                //clearInterval(x);
                 $("#countDown").val("00:00:00");
+                document.getElementById('countDown').style.color = '#f08000';
+                alert('this');
             }
 
-            //  console.log(hours + ":" + minutes + ":" + seconds);
-
         }, 1000);
-
     }
 });
