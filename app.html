@@ -5,76 +5,67 @@
     <meta charset="UTF-8">
     <title>Daily Draggable</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
-    <script src="countdown.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-
-
+    <script src='https://rubaxa.github.io/Sortable/Sortable.js'></script>
+    <script src="js/countdown.js"></script>
+    <script src='js/todolist.js'></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-
-
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 
 <body>
+<div class="container-fluid">
 
-<div class="topSectionBorder tasktime" align="center">
-    <table class="table countdownTable">
-        <tr>
-            <td><input type="text" id="totalTaskTime" class="totalTaskTime"></td>
-            <td class="recipe-table__cell">
-                <input type="text" id="countDown" class="countDown"></td>
-        </tr>
-    </table>
+    <div class="topSection" align="center">
+        <table class="table">
+            <tr>
+                <td><input type="text" id="totalTaskTime" class="totalTaskTime" readonly></td>
+                <td>
+                    <input type="text" id="countDown" class="countDown" readonly></td>
+            </tr>
+        </table>
 
-</div>
-<div class="recipe tasks" align="center">
+    </div>
+
 
     <div class="todoListContainer" align="center">
         <table cellpadding="0" cellspacing="0" border="0" class="todoList" id="recipeTable" align="center">
             <tbody id="recipeTableBody">
-
             <tr>
                 <td class="drag-handler"></td>
-
                 <td class="todoListCell">
                     <input type="text" class="taskInputFields" value="" placeholder="task description..."></td>
 
                 <td class="todoListCell">
-                    <input type="number" class="taskInputFields taskTimeEstimate" value=""
+                    <input type="number" class="taskInputFields taskTimeEstimate" value="" step="0.1"
                            placeholder="time estimate...">
                     <button class="delRowButton">x</button>
                 </td>
             </tr>
-
             </tbody>
         </table>
         <div class="addRow">
             <span class="addRowButton">+</span>
         </div>
     </div>
+
+    <script id="rowTemplate" type="text/template">
+        <tr>
+            <td class="drag-handler"></td>
+
+            <td class="taskDescription" align="center">
+                <input type="text" class="taskInputFields" value="" placeholder="task description..."></td>
+
+            <td class="taskTimeEstimate" align="center">
+                <input type="number" class="taskInputFields  taskTimeEstimate" value="" placeholder="time estimate...">
+
+                <button class="delRowButton">x</button>
+            </td>
+        </tr>
+    </script>
 </div>
-<script id="rowTemplate" type="text/template">
-    <tr>
-        <td class="drag-handler"></td>
-
-
-        <td class="recipe-table__cell" align="center">
-            <input type="text" class="taskInputFields" value="" placeholder="task description..."></td>
-
-        <td class="recipe-table__cell" align="center">
-            <input type="number" class="taskInputFields  taskTimeEstimate" value="" placeholder="time estimate...">
-
-            <button class="delRowButton">x</button>
-        </td>
-    </tr>
-
-</script>
-<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
-<script src='https://rubaxa.github.io/Sortable/Sortable.js'></script>
-<script src='todolist.js'></script>
-
 </body>
 </html>
