@@ -7,17 +7,17 @@ $(document).ready(function () {
 
         var today = new Date(),
             dd = today.getDate(),
-            mm = today.getMonth()+1,
+            mm = today.getMonth() + 1,
             yyyy = today.getFullYear();
 
         var startTime = new Date(mm + '/' + dd + '/' + yyyy + ' ' + wt),
             endTime = new Date(mm + '/' + dd + '/' + yyyy + ' ' + bt);
 
-        setInterval(function() {
+        setInterval(function () {
             var now = new Date();
             var nowdd = today.getDate();
             var nowTime = now.getTime();
-            if(dd !== nowdd) {
+            if (dd !== nowdd) {
                 dd = nowdd;
                 var nowmm = now.getMonth() + 1,
                     nowyyyy = now.getFullYear();
@@ -25,7 +25,7 @@ $(document).ready(function () {
                 endTime = new Date(dd + '/' + mm + '/' + yyyy + ' bt');
             }
 
-            if(nowTime > startTime && nowTime < endTime) {
+            if (nowTime > startTime && nowTime < endTime) {
                 // Find the distance between now and the count down date
                 var distance = endTime - nowTime;
 
@@ -44,9 +44,11 @@ $(document).ready(function () {
 
                 $("#countDown").val(hours + ":" + minutes + ":" + seconds);
             } else {
-                $("#countDown").val("00:00:00");
+                $("#countDown").val("0:00:00");
+                document.getElementById('countDown').style.color = '#db0808';
             }
         }, 1000);
     }
+
     countdown();
 });
