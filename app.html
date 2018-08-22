@@ -19,7 +19,8 @@
 
 
 <body>
-<div class="recipe__info tasktime">
+
+<div class="topSectionBorder tasktime" align="center">
     <table class="table countdownTable">
         <tr>
             <td><input type="text" id="totalTaskTime" class="totalTaskTime"></td>
@@ -29,29 +30,29 @@
     </table>
 
 </div>
-<div class="recipe tasks">
+<div class="recipe tasks" align="center">
 
-    <div class="recipe__ingredients">
-        <table cellpadding="0" cellspacing="0" border="0" class="recipe-table" id="recipeTable">
+    <div class="todoListContainer" align="center">
+        <table cellpadding="0" cellspacing="0" border="0" class="todoList" id="recipeTable" align="center">
             <tbody id="recipeTableBody">
 
             <tr>
                 <td class="drag-handler"></td>
 
-                <td class="recipe-table__cell">
-                    <input type="text" class="recipe__text-field" value="" placeholder="task description..."></td>
+                <td class="todoListCell">
+                    <input type="text" class="taskInputFields" value="" placeholder="task description..."></td>
 
-                <td class="recipe-table__cell">
-                    <input type="text" class="recipe__text-field taskTimeEstimate" value=""
+                <td class="todoListCell">
+                    <input type="number" class="taskInputFields taskTimeEstimate" value=""
                            placeholder="time estimate...">
-                    <button class="recipe-table__del-row-btn">x</button>
+                    <button class="delRowButton">x</button>
                 </td>
             </tr>
 
             </tbody>
         </table>
-        <div class="recipe-table__add-row">
-            <span class="recipe-table__add-row-btn">+</span>
+        <div class="addRow">
+            <span class="addRowButton">+</span>
         </div>
     </div>
 </div>
@@ -60,14 +61,13 @@
         <td class="drag-handler"></td>
 
 
-        <td class="recipe-table__cell">
-            <input type="text" class="recipe__text-field " value="" placeholder="task description..."></td>
+        <td class="recipe-table__cell" align="center">
+            <input type="text" class="taskInputFields" value="" placeholder="task description..."></td>
 
-        <td class="recipe-table__cell">
-            <input type="text" class="recipe__text-field  taskTimeEstimate" value="" placeholder="time estimate...">
+        <td class="recipe-table__cell" align="center">
+            <input type="number" class="taskInputFields  taskTimeEstimate" value="" placeholder="time estimate...">
 
-
-            <button class="recipe-table__del-row-btn">x</button>
+            <button class="delRowButton">x</button>
         </td>
     </tr>
 
