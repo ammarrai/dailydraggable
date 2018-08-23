@@ -1,62 +1,60 @@
-$(document).ready(function(){
+$(document).ready(function () {
 
-$("#submitBtn").click(function(){
-	
-	var sleepHours = parseInt($('#sleepHours').val());
-	//console.log(sleepHours);
+    $("#submitBtn").click(function () {
 
-	var sleepMinutes = parseInt($('#sleepMinutes').val());
-	//console.log(sleepMinutes);
+        var sleepHours = parseInt($('#sleepHours').val());
 
-	var totalSleepTime = sleepHours + sleepMinutes;
-	// console.log(totalSleepTime)
+        var sleepMinutes = parseInt($('#sleepMinutes').val());
 
-	var totalSleepTimeInMinutes = (sleepHours *60) + sleepMinutes;
-	// console.log('Total Sleep Time:' + totalSleepTimeInMinutes)
+        var totalSleepTimeDecimal = sleepHours + (sleepMinutes/60);
 
-	var wakeupTimeString = ($('#wakeupTime').val());
+        var totalSleepTimeInMinutes = (sleepHours * 60) + sleepMinutes;
 
-	var sleepPrep = $("input[name='sleepPrep']:checked").val();
-    //console.log('Sleep Prep:' + sleepPrep);
+        var wakeupTimeString = ($('#wakeupTime').val());
 
-	var time = moment.utc(wakeupTimeString, "HH:mm");
-	time.subtract(sleepHours, 'hours');
-	time.subtract(parseInt(sleepPrep), 'hours');
+        var sleepPrep = $("input[name='sleepPrep']:checked").val();
 
-	time.subtract(sleepMinutes, 'minutes');
-	var bedTime = time.format("HH:mm");
-	console.log('Bed Time:' + bedTime);
+        var time = moment.utc(wakeupTimeString, "HH:mm");
+        time.subtract(sleepHours, 'hours');
+        time.subtract(parseInt(sleepPrep), 'hours');
 
-	var wakeupTimeArray = (wakeupTimeString.split(":"));
-	var wakeUpTimeInMinutes = (parseInt(wakeupTimeArray[0])*60 + parseInt(wakeupTimeArray[1]));
-//	console.log('Wakeup time in Minutes:'+ wakeUpTimeInMinutes);
+        time.subtract(sleepMinutes, 'minutes');
+        var bedTime = time.format("HH:mm");
 
-	var recommendedSleepTimeInMinutes = (wakeUpTimeInMinutes - totalSleepTimeInMinutes);
-//	console.log('Recommend Sleep Time in Minutes:' + recommendedSleepTimeInMinutes);
+        var wakeupTimeArray = (wakeupTimeString.split(":"));
+        var wakeUpTimeInMinutes = (parseInt(wakeupTimeArray[0]) * 60 + parseInt(wakeupTimeArray[1]));
 
-	var essentialHours = $('#essentialHours').val();
-	var essentialMinutes = $('#essentialMinutes').val();
-//	console.log(essentialHours);
+        //var recommendedSleepTimeInMinutes = (wakeUpTimeInMinutes - totalSleepTimeInMinutes);
 
-	var dailyAvailableTime  = moment.utc("24:00", "HH:mm");
-	dailyAvailableTime.subtract(parseInt(essentialHours), 'hours');
-	dailyAvailableTime.subtract(parseInt(essentialMinutes), 'minutes');
+        var essentialHours = $('#essentialHours').val();
+        var essentialMinutes = $('#essentialMinutes').val();
 
-	dailyAvailableTime.subtract(parseInt(sleepHours),'hours');
-	dailyAvailableTime.subtract(parseInt(sleepMinutes),'minutes');
+        var dailyAvailableTime = moment.utc("24:00", "HH:mm");
+        dailyAvailableTime.subtract(parseInt(essentialHours), 'hours');
+        dailyAvailableTime.subtract(parseInt(essentialMinutes), 'minutes');
 
-	dailyAvailableTime.subtract(parseInt(sleepPrep), 'hours');
+        dailyAvailableTime.subtract(parseInt(sleepHours), 'hours');
+        dailyAvailableTime.subtract(parseInt(sleepMinutes), 'minutes');
 
-	var dat = dailyAvailableTime.format("HH:mm");
-	console.log('Daily Availble Time:'+dat);
+        dailyAvailableTime.subtract(parseInt(sleepPrep), 'hours');
 
-    localStorage.setItem('dailyAvailableTime', dat);
-    localStorage.setItem('bedTime', bedTime);
-    localStorage.setItem('wakeTime', wakeupTimeString);
-    localStorage.setItem('essentialHours', essentialHours);
-    localStorage.setItem('essentialMinutes', essentialMinutes);
-	});
+        var dat = dailyAvailableTime.format("HH:mm");
+        var dat = dailyAvailableTime.format
 
+
+        localStorage.setItem('dailyAvailableTime', dat);
+        localStorage.setItem('bedTime', bedTime);
+        localStorage.setItem('wakeTime', wakeupTimeString);
+        localStorage.setItem('essentialHours', essentialHours);
+        localStorage.setItem('essentialMinutes', essentialMinutes);
+        localStorage.setItem('totalSleepTimeDecimal', totalSleepTimeDecimal);
+
+        console.log('Bed Time:' + bedTime);
+        console.log('Wake-up Time: '+wakeupTimeString);
+        console.log('Total Sleep Time:'+totalSleepTimeDecimal);
+        console.log('Daily Available Time:' + dat);
+        console.log('Daily Available Time (Decimal):' + datDecimal);
+    });
 });
 
 

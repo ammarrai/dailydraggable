@@ -1,9 +1,13 @@
 $(document).ready(function () {
 
     function countdown() {
-        var bt = "23:00",  // 11:00 PM
-            wt = "08:00";  // 08:00 AM
 
+
+        var dat = localStorage.getItem('dailyAvailableTime');
+        var datd = localStorage.getItem('dailyAvailableTimeDecimal');
+        var bt = localStorage.getItem('bedTime');
+        var wt = localStorage.getItem('wakeTime');
+        var tstd = localStorage.getItem('totalSleepTimeDecimal');
 
         var today = new Date(),
             dd = today.getDate(),
@@ -19,8 +23,7 @@ $(document).ready(function () {
             var nowTime = now.getTime();
             if (dd !== nowdd) {
                 dd = nowdd;
-                var nowmm = now.getMonth() + 1,
-                    nowyyyy = now.getFullYear();
+
                 startTime = new Date(dd + '/' + mm + '/' + yyyy + ' wt');
                 endTime = new Date(dd + '/' + mm + '/' + yyyy + ' bt');
             }
@@ -34,12 +37,20 @@ $(document).ready(function () {
                     minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
                     seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-                if (minutes.toString().length == 1) {
+                if (minutes.toString().length === 1) {
                     minutes = "0" + minutes;
                 }
 
-                if (seconds.toString().length == 1) {
+                if (seconds.toString().length === 1) {
                     seconds = "0" + seconds;
+                }
+
+                if (hours.toString() == 1) {
+                    document.getElementById('countDown').style.color = '#f48942';
+                }
+
+                if (hours.toString() == 0) {
+                    document.getElementById('countDown').style.color = '#db0808';
                 }
 
                 $("#countDown").val(hours + ":" + minutes + ":" + seconds);
