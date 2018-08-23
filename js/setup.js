@@ -38,11 +38,17 @@ $(document).ready(function () {
 
         dailyAvailableTime.subtract(parseInt(sleepPrep), 'hours');
 
+        var datHours = dailyAvailableTime.hours();
+        var datMinutes = (dailyAvailableTime.minutes())/60;
+        var dailyAvailableTimeDecimal =  datHours + datMinutes;
+
         var dat = dailyAvailableTime.format("HH:mm");
-        var dat = dailyAvailableTime.format
+
+
 
 
         localStorage.setItem('dailyAvailableTime', dat);
+        localStorage.setItem('dailyAvailableTimeDecimal', dailyAvailableTimeDecimal);
         localStorage.setItem('bedTime', bedTime);
         localStorage.setItem('wakeTime', wakeupTimeString);
         localStorage.setItem('essentialHours', essentialHours);
@@ -53,7 +59,7 @@ $(document).ready(function () {
         console.log('Wake-up Time: '+wakeupTimeString);
         console.log('Total Sleep Time:'+totalSleepTimeDecimal);
         console.log('Daily Available Time:' + dat);
-        console.log('Daily Available Time (Decimal):' + datDecimal);
+        console.log('Daily Available Time (Decimal):' + dailyAvailableTimeDecimal);
     });
 });
 

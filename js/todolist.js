@@ -1,7 +1,5 @@
 $(document).ready(function () {
 
-    debugger;
-
     var dat = localStorage.getItem('dailyAvailableTime');
     var datd = localStorage.getItem('dailyAvailableTimeDecimal');
     var bt = localStorage.getItem('bedTime');
@@ -16,36 +14,30 @@ $(document).ready(function () {
             var total = 0;
             for (var i = 0; i < inputs.length; i++) {
                 if ($(inputs[i]).val() !== '')
-                    total += parseFloat($(inputs[i]).val());
-
-                var decimalTimeString = total;
+                    var decimalTimeString = total += parseFloat($(inputs[i]).val());
                 var n = new Date(0, 0);
                 n.setSeconds(+decimalTimeString * 60 * 60);
                 var hrs = n.getHours();
                 var mins = n.getMinutes();
+                totalTaskTimeDecimal = hrs + (mins / 60);
+
             }
 
             if (mins < 10) {
-                mins = "0"+mins;
+                mins = "0" + mins;
             }
 
 
-            if (hrs > dat) {
-                console.log("tasks can't be more than available hours!");
+            if (totalTaskTimeDecimal > datd) {
+                document.getElementById('totalTaskTime').style.color = '#db0808';
+            } else {
+                document.getElementById('totalTaskTime').style.color = '#FFFFFF';
             }
 
-            $("#totalTaskTime").val(hrs+":"+mins);
-
+            $("#totalTaskTime").val(hrs + ":" + mins);
 
 
         });
-    }
-
-    function minTommss(minutes) {
-        var sign = minutes < 0 ? "-" : "";
-        var min = Math.floor(Math.abs(minutes));
-        var sec = Math.floor((Math.abs(minutes) * 60) % 60);
-        return sign + (min < 10 ? "0" : "") + min + ":" + (sec < 10 ? "0" : "") + sec;
     }
 
 
