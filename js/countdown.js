@@ -45,7 +45,11 @@ $(document).ready(function () {
                     seconds = "0" + seconds;
                 }
 
-                if (hours.toString() == 1) {
+                if (hours.toString() === 2) {
+                    document.getElementById('countDown').style.color = '#f4df42';
+                }
+
+                if (hours.toString() === 1) {
                     document.getElementById('countDown').style.color = '#f48942';
                 }
 
