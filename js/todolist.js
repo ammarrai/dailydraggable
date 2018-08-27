@@ -11,35 +11,93 @@ $(document).ready(function () {
     function addTaskTime() {
         $(".taskTimeEstimate").change(function () {
 
+
             var inputs = $(".taskTimeEstimate");
             var total = 0;
             var totalTaskTimeDecimal;
 
             for (var i = 0; i < inputs.length; i++) {
                 if ($(inputs[i]).val() !== '')
+                    var decimalTimeString = total += parseInt($(inputs[i]).val());
+
+            }
+            var integerPart = total;
+            total = 0;
+            var inputs = $(".taskMinutes");
+            for (var i = 0; i < inputs.length; i++) {
+                if ($(inputs[i]).val() !== '')
                     var decimalTimeString = total += parseFloat($(inputs[i]).val());
 
-            // convert TTT to decimal
-                var n = new Date(0, 0);
-                n.setSeconds(+decimalTimeString * 60 * 60);
-                var hrs = n.getHours();
-                var mins = n.getMinutes();
-                totalTaskTimeDecimal = hrs + (mins / 60);
-
             }
+            var decimalPart = total / 100;
+            if (decimalPart >= 0.6) {
+                while (decimalPart >= 0.6) {
 
-            // make minutes double digit
-            if (mins < 10) {
-                mins = "0" + mins;
-            }
+                    integerPart = integerPart + 1;
 
-            // if TTT is greater than DAT, make TTT red and display it.
-            if (totalTaskTimeDecimal > datd) {
-                document.getElementById('totalTaskTime').style.color = '#db0808';
+                    decimalPart = decimalPart - 0.6;
+                }
+                var totalTaskTime = integerPart + Math.abs(decimalPart);
+                totalTaskTime = totalTaskTime.toFixed(2).toString();
+                totalTaskTime = totalTaskTime.replace(".",":");
+                $("#totalTaskTime").val(totalTaskTime);
+
             } else {
-                document.getElementById('totalTaskTime').style.color = '#FFFFFF';
+                newTime = integerPart + decimalPart;
+                totalTaskTime = newTime.toFixed(2).toString();
+                totalTaskTime = totalTaskTime.replace(".",":");
+                $("#totalTaskTime").val(totalTaskTime);
             }
-            $("#totalTaskTime").val(hrs + ":" + mins);
+
+
+        });
+
+        $(".taskMinutes").change(function () {
+
+
+            var inputs = $(".taskTimeEstimate");
+            var total = 0;
+            var totalTaskTimeDecimal;
+
+            for (var i = 0; i < inputs.length; i++) {
+                if ($(inputs[i]).val() !== '')
+                    var decimalTimeString = total += parseInt($(inputs[i]).val());
+
+            }
+            var integerPart = total;
+            total = 0;
+            var inputs = $(".taskMinutes");
+            for (var i = 0; i < inputs.length; i++) {
+                if ($(inputs[i]).val() !== '')
+                    var decimalTimeString = total += parseFloat($(inputs[i]).val());
+
+            }
+            var decimalPart = total / 100;
+
+            if (decimalPart >= 0.6) {
+                while (decimalPart >= 0.6) {
+
+                    integerPart = integerPart + 1;
+
+                    decimalPart = decimalPart - 0.6;
+                }
+
+                //decimalPart = 0.6 - decimalPart;
+                var totalTaskTime1 = integerPart + Math.abs(decimalPart);
+
+                totalTaskTime = totalTaskTime1.toFixed(2).toString();
+                totalTaskTime = totalTaskTime.replace(".",":");
+                $("#totalTaskTime").val(totalTaskTime);
+
+
+            } else {
+                newTime = integerPart + decimalPart;
+                totalTaskTime = newTime.toFixed(2).toString();
+                totalTaskTime = totalTaskTime.replace(".",":");
+                $("#totalTaskTime").val(totalTaskTime);
+            }
+
+
         });
     }
 
@@ -60,8 +118,53 @@ $(document).ready(function () {
         var $row = $el.closest('tr');
         var par = $el.closest('td').find("input").val();
         var total = $("#totalTaskTime").val();
-        $("#totalTaskTime").val(total - par);
+       // $("#totalTaskTime").val(total - par);
         $row.remove();
+        //new code
+
+
+        var inputs = $(".taskTimeEstimate");
+        var total = 0;
+        var totalTaskTimeDecimal;
+
+        for (var i = 0; i < inputs.length; i++) {
+            if ($(inputs[i]).val() !== '')
+                var decimalTimeString = total += parseInt($(inputs[i]).val());
+
+        }
+        var integerPart = total;
+        total = 0;
+        var inputs = $(".taskMinutes");
+        for (var i = 0; i < inputs.length; i++) {
+            if ($(inputs[i]).val() !== '')
+                var decimalTimeString = total += parseFloat($(inputs[i]).val());
+
+        }
+        var decimalPart = total / 100;
+
+        if (decimalPart >= 0.6) {
+            while (decimalPart >= 0.6) {
+
+                integerPart = integerPart + 1;
+
+                decimalPart = decimalPart - 0.6;
+            }
+
+            //decimalPart = 0.6 - decimalPart;
+            var totalTaskTime = integerPart + Math.abs(decimalPart);
+
+
+            totalTaskTime = totalTaskTime.toFixed(2).toString();
+            totalTaskTime = totalTaskTime.replace(".",":");
+            $("#totalTaskTime").val(totalTaskTime);
+
+
+        } else {
+            newTime = integerPart + decimalPart;
+            totalTaskTime = newTime.toFixed(2).toString();
+            totalTaskTime = totalTaskTime.replace(".",":");
+            $("#totalTaskTime").val(totalTaskTime);
+        }
         return false;
     });
 

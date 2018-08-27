@@ -3,6 +3,9 @@ body {
     background-color: black;
 }
 
+
+
+
 .countDown {
     background-color: black;
     color: white;
@@ -12,14 +15,15 @@ body {
     text-align: center;
 }
 
-.totalTaskTime {
-    background-color: black;
-    color: white;
-    font-size: 50px;
-    font-family: "Dubai";
-    border: none;
-    text-align: center;
-}
+    .totalTaskTime {
+        background-color: black;
+        color: white;
+        font-size: 50px;
+        font-family: "Dubai";
+        border: none;
+        text-align: center;
+    }
+
 
 .topSection {
     vertical-align: top;
@@ -38,6 +42,18 @@ body {
     background-color: black;
     width: 100%;
 }
+.todoListTimeDelBtn {
+    width: 166px;
+    max-width: 100%;
+    float: left;
+    text-align: center;
+    margin-left: 0px;
+    margin-right: -7px;
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+
+
 
 .todoList {
     position: center;
@@ -64,6 +80,10 @@ body {
     background: white none;
     border: 0 solid #CCCCCC;
     border-left: 0 solid #CCC;
+}
+
+.timeInputField {
+    width: 30%
 }
 
 .addRowButton {

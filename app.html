@@ -20,10 +20,10 @@
 <body>
 <div class="container-fluid">
 
-    <div class="topSection" align="center">
+    <div class="topSection table-responsive-sm" align="center">
         <table class="table">
             <tr>
-                <td><input type="text" id="totalTaskTime" class="totalTaskTime" readonly></td>
+                <td><input type="text" id="totalTaskTime" class="totalTaskTime" ></td>
                 <td>
                     <input type="text" id="countDown" class="countDown" readonly></td>
             </tr>
@@ -40,9 +40,16 @@
                 <td class="todoListCell">
                     <input type="text" class="taskInputFields" value="" placeholder="task description..."></td>
 
-                <td class="todoListCell">
-                    <input type="number" class="taskInputFields taskTimeEstimate" value="" step="0.1"
-                           placeholder="0.00" min="0" max="24">
+                <td class="todoListCell todoListTimeDelBtn">
+                    <input type="number" class="taskInputFields taskTimeEstimate timeInputField" value="" step="1"
+                           placeholder="0" min="0" max="23">
+
+                    <select class="taskMinutes taskInputFields">
+                        <option value="00">00</option>
+                        <option value="15">15</option>
+                        <option value="30">30</option>
+                        <option value="45">45</option>
+                    </select>
                     <button class="delRowButton">x</button>
                 </td>
             </tr>
@@ -57,11 +64,18 @@
         <tr>
             <td class="drag-handler"></td>
 
-            <td class="taskDescription" align="center">
+            <td class="todoListCell">
                 <input type="text" class="taskInputFields" value="" placeholder="task description..."></td>
 
-            <td class="taskTimeEstimate" align="center">
-                <input type="number" class="taskInputFields  taskTimeEstimate" step="0.1"  value="" placeholder="0.00" min="0" max="24">
+            <td class="todoListCell todoListTimeDelBtn">
+                <input type="number" class="taskInputFields  taskTimeEstimate timeInputField" step="1"  value="" placeholder="0" min="0" max="24">
+
+                <select class="taskMinutes taskInputFields">
+                    <option value="00">00</option>
+                    <option value="15">15</option>
+                    <option value="30">30</option>
+                    <option value="45">45</option>
+                </select>
 
                 <button class="delRowButton">x</button>
             </td>
