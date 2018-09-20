@@ -2,6 +2,9 @@ $(document).ready(function () {
 
     $("#submitBtn").click(function () {
 
+        alert("test");
+        $('#myModal').modal('hide');
+
         var sleepHours = parseInt($('#sleepHours').val());
 
         var sleepMinutes = parseInt($('#sleepMinutes').val());
@@ -60,6 +63,7 @@ $(document).ready(function () {
         console.log('Total Sleep Time:'+totalSleepTimeDecimal);
         console.log('Daily Available Time:' + dat);
         console.log('Daily Available Time (Decimal):' + dailyAvailableTimeDecimal);
+
     });
 });
 

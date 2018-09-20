@@ -6,6 +6,22 @@ $(document).ready(function () {
     var wt = localStorage.getItem('wakeTime');
     var tstd = localStorage.getItem('totalSleepTimeDecimal');
 
+    var essentialHours = localStorage.getItem('essentialHours');
+    var essentialMinutes = localStorage.getItem('essentialMinutes');
+
+    if( bt === null ) {
+
+        $('#myModal').modal('show');
+        console.log( tstd );
+    }else{
+        $("#sleepHours").val( tstd );
+        $("#wakeupTime").val(wt);
+        $("#essentialHours").val(essentialHours);
+        $("#essentialMinutes").val(essentialMinutes);
+    }
+
+
+
     addTaskTime();
 
     function addTaskTime() {
