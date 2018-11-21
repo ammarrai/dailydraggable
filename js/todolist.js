@@ -117,9 +117,15 @@ $(document).ready(function () {
         });
     }
 
+    $(document).on('click','.defaultRow',function(e){
+        //$(this).removeClass('delRowButton');
+        $('.addRowButton').css("margin-top",'127px');
+
+    });
 
     // add row button + add task time
     $(document).on('click', '.addRowButton', function (e) {
+        $(this).css("margin-top",'0px');
         //var $el = $(e.currentTarget);
         var $tableBody = $('#todoListTableBody');
         var htmlString = $('#rowTemplate').html();

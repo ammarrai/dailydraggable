@@ -31,8 +31,9 @@
                 <h4 class="modal-title">Modal Header</h4>
             </div>
             <div class="modal-body">
-                Hours<input type="number" id="sleepHours" placeholder="hours">
-                Minutes<input type="number" id="sleepMinutes" placeholder="minutes" min=1 max=59>
+                Hours<input type="number"   id="sleepHours" placeholder="hours">
+                Minutes<input type="number"  id="sleepMinutes" placeholder="minutes" min=1 max=59>
+
                 <br>
                 Wakeup?<input type="time" id="wakeupTime">
                 <br>
@@ -42,7 +43,13 @@
                 <br>
                 Essentials
                 <input type="number" id="essentialHours">
-                <input type="number" id="essentialMinutes">
+                <!--<input type="number" id="essentialMinutes">-->
+                <select name="essentialMinutes" id="essentialMinutes">
+                    <option value="00">00</option>
+                    <option value="15">15</option>
+                    <option value="30">30</option>
+                    <option value="45">45</option>
+                </select>
                 <br>
                 <input type="submit" id="submitBtn" value="Submit" />
             </div>
@@ -77,19 +84,19 @@
             <tr>
                 <td class="drag-handler"></td>
                 <td class="todoListCell">
-                    <input type="text" class="taskInputFields" value="" placeholder="task description..."></td>
+                    <input type="text" class="taskInputFields" value="" placeholder="Essential Task"></td>
 
                 <td class="todoListCell todoListTimeDelBtn">
-                    <input type="number" class="taskInputFields taskTimeEstimate timeInputField" value="" step="1"
+                    <input type="number" class="ehour taskInputFields taskTimeEstimate timeInputField" value="" step="1"
                            placeholder="0" min="0" max="23">
 
-                    <select class="taskMinutes taskInputFields">
+                    <select class="taskMinutes taskInputFields emin">
                         <option value="00">00</option>
                         <option value="15">15</option>
                         <option value="30">30</option>
                         <option value="45">45</option>
                     </select>
-                    <button class="delRowButton">x</button>
+                    <button class="delRowButton defaultRow">x</button>
                 </td>
             </tr>
             </tbody>
@@ -97,7 +104,7 @@
         <div class="addRow">
             <span class="addRowButton">+</span>
         </div>
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+        <button type="button" class="setup-time btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
 
     </div>
 

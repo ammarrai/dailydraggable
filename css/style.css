@@ -163,3 +163,20 @@ body {
     background-image: linear-gradient(45deg, #bab86c, #bab86c 2px, #fff 2px, #fff 4px, #bab86c 4px, #bab86c 9px, #fff 9px, #fff 11px, #bab86c 11px, #bab86c 16px, #fff 16px, #fff 18px, #bab86c 18px, #bab86c 22px);
     background-size: 10px 20px;
 }
+.addRowButton {
+    margin-top: 0px;
+}
+.delRowButton.defaultRow{
+    pointer-events: none;
+}
+.setup-time{
+    text-align: left;
+    font-size: 12px;
+    padding: 6px;
+    float: left;
+    margin-left: 10%;
+    margin-top: 6%;
+    background: #CCCCCC;
+    color: black;
+    border: none;
+}

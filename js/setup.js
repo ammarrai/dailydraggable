@@ -1,5 +1,12 @@
 $(document).ready(function () {
 
+    $essential_hour = localStorage.getItem('essentialHours');
+    $essential_min = localStorage.getItem('essentialMinutes');
+    $('.ehour').val($essential_hour);
+    $('.emin').val($essential_min);
+
+
+
     $("#submitBtn").click(function () {
 
         alert("test");
@@ -30,7 +37,8 @@ $(document).ready(function () {
         //var recommendedSleepTimeInMinutes = (wakeUpTimeInMinutes - totalSleepTimeInMinutes);
 
         var essentialHours = $('#essentialHours').val();
-        var essentialMinutes = $('#essentialMinutes').val();
+        var essentialMinutes = $('#essentialMinutes :selected').val();
+
 
         var dailyAvailableTime = moment.utc("24:00", "HH:mm");
         dailyAvailableTime.subtract(parseInt(essentialHours), 'hours');
@@ -63,6 +71,7 @@ $(document).ready(function () {
         console.log('Total Sleep Time:'+totalSleepTimeDecimal);
         console.log('Daily Available Time:' + dat);
         console.log('Daily Available Time (Decimal):' + dailyAvailableTimeDecimal);
+        location.reload();
 
     });
 });
