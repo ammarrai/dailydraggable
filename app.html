@@ -31,15 +31,34 @@
                 <h4 class="modal-title">Modal Header</h4>
             </div>
             <div class="modal-body">
-                Hours<input type="number"   id="sleepHours" placeholder="hours">
-                Minutes<input type="number"  id="sleepMinutes" placeholder="minutes" min=1 max=59>
+                <div class="container">
+                 <div class="row">
+                    <div class="col-sm-6">
+                       <label>Hours</label> <input class="form-control" type="number"   id="sleepHours" placeholder="hours">
+                    </div>
+                    <div class="col-sm-6">
 
-                <br>
-                Wakeup?<input type="time" id="wakeupTime">
-                <br>
-                Sleep Prep?
-                <input type="radio" name="sleepPrep" value="1">Yes
-                <input type="radio" name="sleepPrep" value="0">No
+                    <label>Minutes</label><input class="form-control" type="number"  id="sleepMinutes" placeholder="minutes" min=1 max=59>
+                    </div>
+                 </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>Wakeup?</label><input  class="form-control" type="time" id="wakeupTime">
+
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>Sleep Prep?</p>
+                            <label class="radio-inline"><input type="radio" name="sleepPrep" value="1">Yes</label>
+                            <label class="radio-inline"><input type="radio" name="sleepPrep" value="0">No</label>
+                        </div>
+
+                    </div>
+                </div>
+
+
                 <br>
                 Essentials
                 <input type="number" id="essentialHours">
