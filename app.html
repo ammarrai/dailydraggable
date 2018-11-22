@@ -28,29 +28,34 @@
         <div class="modal-content">
             <div class="modal-header1">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
+                <h4 class="modal-title">Setup</h4>
             </div>
             <div class="modal-body">
                 <div class="container">
-                 <div class="row">
-                    <div class="col-sm-6">
-                       <label>Hours</label> <input class="form-control" type="number"   id="sleepHours" placeholder="hours">
-                    </div>
-                    <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-6">
 
-                    <label>Minutes</label><input class="form-control" type="number"  id="sleepMinutes" placeholder="minutes" min=1 max=59>
+                            <label>Sleep Required:</label> <input class="form-control" type="number" id="sleepHours"
+                                                                  placeholder="hours">
+                        </div>
+                        <div class="col-sm-6">
+
+                            <label></label><input class="form-control" type="number" id="sleepMinutes"
+                                                  placeholder="minutes" min=1 max=59>
+                        </div>
                     </div>
-                 </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <label>Wakeup?</label><input  class="form-control" type="time" id="wakeupTime">
+                            <br>
+                            <label>Wakeup Time:</label><input class="form-control" type="time" id="wakeupTime">
 
                         </div>
 
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <p>Sleep Prep?</p>
+                            <br>
+                            <p>1-Hour Sleep Prep:</p>
                             <label class="radio-inline"><input type="radio" name="sleepPrep" value="1">Yes</label>
                             <label class="radio-inline"><input type="radio" name="sleepPrep" value="0">No</label>
                         </div>
@@ -60,17 +65,18 @@
 
 
                 <br>
-                Essentials
-                <input type="number" id="essentialHours">
+                Essential Activities:
+                <br>
+                <input type="number" id="essentialHours" class="form-control">
                 <!--<input type="number" id="essentialMinutes">-->
-                <select name="essentialMinutes" id="essentialMinutes">
+                <select name="essentialMinutes" id="essentialMinutes" class="form-control">
                     <option value="00">00</option>
                     <option value="15">15</option>
                     <option value="30">30</option>
                     <option value="45">45</option>
                 </select>
                 <br>
-                <input type="submit" id="submitBtn" value="Submit" />
+                <input type="submit" id="submitBtn" value="Submit"/>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -85,16 +91,14 @@
     <div class="topSection table-responsive-sm" align="center">
         <div class="row">
             <div class="col-xs-2">
-                <input type="text" id="totalTaskTime" class="totalTaskTime" >
+                <input type="text" id="totalTaskTime" class="totalTaskTime">
             </div>
-                <div class="col-xs-2" style="float:left">
-                    <input type="text" id="countDown" class="countDown" readonly>
-                </div>
+            <div class="col-xs-2" style="float:left">
+                <input type="text" id="countDown" class="countDown" readonly>
+            </div>
         </div>
 
     </div>
-
-
 
 
     <div class="todoListContainer" align="center">
@@ -123,7 +127,8 @@
         <div class="addRow">
             <span class="addRowButton">+</span>
         </div>
-        <button type="button" class="setup-time btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+        <button type="button" class="setup-time btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Setup
+        </button>
 
     </div>
 
@@ -135,7 +140,8 @@
                 <input type="text" class="taskInputFields" value="" placeholder="task description..."></td>
 
             <td class="todoListCell todoListTimeDelBtn">
-                <input type="number" class="taskInputFields  taskTimeEstimate timeInputField" step="1"  value="" placeholder="0" min="0" max="24">
+                <input type="number" class="taskInputFields  taskTimeEstimate timeInputField" step="1" value=""
+                       placeholder="0" min="0" max="24">
 
                 <select class="taskMinutes taskInputFields">
                     <option value="00">00</option>
